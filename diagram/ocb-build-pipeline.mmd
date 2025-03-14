@@ -1,17 +1,16 @@
 flowchart LR
-    manifest["manifest.yaml"]
+    manifest[Manifest]
     
     subgraph ocb["OCB"]
-        tmpl["main.go.tmpl, ..."]
+        tmpl[Templates]
+        code["Go<br>code"]
     end
-
-    code["main.go, components.go, ..."]
 
     bin["fa:fa-terminal otelcol"]
 
-    manifest --> ocb
-    ocb --> code
-    code -->|"&nbsp;go build&nbsp;"| bin
+    manifest --> tmpl
+    tmpl --> code
+    code -..->|"&nbsp;<code>go build</code>&nbsp;"| bin
 
 class manifest,tmpl,code,bin box;
 class manifest,tmpl,code,bin rounded;
