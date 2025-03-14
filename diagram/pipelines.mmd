@@ -1,0 +1,20 @@
+flowchart LR
+    START1:::hidden --> Receiver1
+    START2:::hidden --> Receiver2
+    Processor --> Exporter1 & Exporter2
+    Receiver1 & Receiver2 --> Processor
+    Exporter1 --> END1:::hidden
+    Exporter2 --> END2:::hidden
+
+    subgraph Collector["OTel Collector"]
+        Receiver1["Receiver"]@{ shape: delay }
+        Receiver2["Receiver"]@{ shape: delay }
+        Processor["Processor"]
+        Exporter1["Exporter"]@{shape: delay}
+        Exporter2["Exporter"]@{shape: delay}
+    end
+
+class Collector container;
+class Processor,Receiver1,Receiver2,Exporter1,Exporter2 box;
+class Processor rounded;
+class Exporter1,Exporter2 mirror;
