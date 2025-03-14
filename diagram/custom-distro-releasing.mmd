@@ -1,0 +1,29 @@
+flowchart LR
+    subgraph upstream ["fa:fa-code-branch OTel upstream"]
+        PR
+
+        main
+
+        Release
+
+        PR --> main
+        main --> Release
+    end
+
+    subgraph distro ["Custom distro"]
+        uu["Update upstream"]
+
+        Hotfix
+
+        Testing
+
+        release2["Release"]
+
+        Release --> uu
+        uu --> Testing
+        Hotfix --> Testing
+        Testing --> release2
+    end
+
+artifacts["fa:fa-cube Artifacts"]
+release2 --> artifacts

@@ -1,0 +1,14 @@
+flowchart LR
+    manifest["manifest.yaml"]
+    
+    subgraph ocb["OCB"]
+        tmpl["main.go.tmpl, ..."]
+    end
+
+    code["main.go, components.go, ..."]
+
+    bin["fa:fa-terminal otelcol"]
+
+    manifest --> ocb
+    ocb --> code
+    code -->|"&nbsp;go build&nbsp;"| bin
