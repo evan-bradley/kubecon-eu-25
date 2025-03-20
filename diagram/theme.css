@@ -42,3 +42,7 @@ Note that SVG elements do not support all CSS properties.
 .mirror path {
     scale: -1 1;
 }
+
+.strikethrough {
+    text-decoration: line-through;
+}

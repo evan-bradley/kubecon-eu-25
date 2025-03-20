@@ -1,0 +1,23 @@
+flowchart LR
+    subgraph consumer["Consuming module"]
+        code["confighttp.ToServer(xconfighttp.WithOtelHTTPOptions(...))"]
+    end
+
+    code --> otelhttp
+    code --> toserver
+
+    subgraph xgomod["fa:fa-triangle-exclamation xconfighttp"]
+        otelhttp["func WithOtelHTTPOptions"]
+
+    end
+
+    subgraph gomod["fa:fa-check confighttp"]
+        toserver["func ToServer(...ToServerOption)"]
+        error["func WithErrorHandler"]
+        option["type ToServerOption"]
+
+        error --> option
+        otelhttp --> option
+    end
+
+class code,otelhttp,toserver,error,option box;

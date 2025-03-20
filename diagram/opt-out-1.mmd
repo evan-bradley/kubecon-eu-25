@@ -1,0 +1,12 @@
+flowchart LR
+    consumer["Consuming module"]
+
+    consumer --> stable
+    consumer --> exp
+
+    subgraph gomod["go.otel.io/module#64;v1.1"]
+        stable["go.otel.io/module/stable_pkg"]
+        exp["go.otel.io/module/exp_pkg"]
+    end
+
+class consumer,stable,exp box;

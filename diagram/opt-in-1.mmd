@@ -1,0 +1,15 @@
+flowchart LR
+    consumer["Consuming module"]
+
+    consumer --> stable
+    consumer --> exp
+
+    subgraph xgomod["fa:fa-triangle-exclamation go.otel.io/xmodule"]
+        exp["go.otel.io/module/exp_pkg"]
+    end
+
+    subgraph gomod["fa:fa-check go.otel.io/module"]
+        stable["go.otel.io/module/stable_pkg"]
+    end
+
+class consumer,stable,exp box;
