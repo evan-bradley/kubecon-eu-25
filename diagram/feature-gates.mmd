@@ -1,0 +1,8 @@
+flowchart LR
+    alpha["<b>Alpha</b><br> off-by-default"]
+    beta["<b>Beta</b><br> on-by-default"]
+    stable["<b>Stable</b><br>can't disable"]
+    alpha --> beta --> stable;
+
+class alpha,beta,stable box;
+class alpha,beta,stable rounded;

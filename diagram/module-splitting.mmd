@@ -1,23 +1,24 @@
 flowchart LR
     subgraph consumer["Consuming module"]
-        code["confighttp.ToServer(xconfighttp.WithOtelHTTPOptions(...))"]
+        code["http.ToServer(<br>&nbsp;&nbsp;xhttp.WithOtelHTTP(...))"]
     end
 
     code --> otelhttp
     code --> toserver
 
-    subgraph xgomod["fa:fa-triangle-exclamation xconfighttp"]
-        otelhttp["func WithOtelHTTPOptions"]
+    subgraph xgomod["fa:fa-triangle-exclamation xhttp"]
+        otelhttp["func WithOtelHTTP"]
 
     end
 
-    subgraph gomod["fa:fa-check confighttp"]
-        toserver["func ToServer(...ToServerOption)"]
+    subgraph gomod["fa:fa-check http"]
+        toserver["func ToServer(...Option)"]
         error["func WithErrorHandler"]
-        option["type ToServerOption"]
+        option["type Option"]
 
         error --> option
         otelhttp --> option
     end
 
 class code,otelhttp,toserver,error,option box;
+class code,otelhttp,toserver,error,option rounded;

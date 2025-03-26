@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph distro ["Custom distro"]
+        uu["Update upstream"]
+
+        Hotfix
+
+        Testing
+
+        release2["Release"]
+
+        uu --> Testing
+        Hotfix --> Testing
+        Testing --> release2
+    end
+
+artifacts["fa:fa-cube Artifacts"]
+release2 --> artifacts
+
+class uu,Hotfix,Testing,release2,artifacts box;
+class uu,Hotfix,Testing,release2,artifacts rounded;
+class distro container;

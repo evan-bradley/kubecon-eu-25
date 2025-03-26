@@ -1,0 +1,17 @@
+stateDiagram-v2
+    state Maintained {
+    InDevelopment --> Alpha
+    Alpha --> Beta
+    Beta --> Stable
+    }
+
+    InDevelopment: In Development
+
+    Maintained --> Unmaintained
+    Unmaintained --> Maintained
+    Maintained --> Deprecated
+    Deprecated --> Maintained: (should be rare)
+
+class Maintained container;
+class InDevelopment,Alpha,Beta,Unmaintained,Deprecated box;
+class InDevelopment,Alpha,Beta,Unmaintained,Deprecated rounded;

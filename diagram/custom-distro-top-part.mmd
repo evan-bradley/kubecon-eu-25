@@ -1,0 +1,9 @@
+flowchart LR
+    subgraph upstream ["fa:fa-code-branch OTel upstream"]
+        direction LR
+        PR --> main --> Release
+    end
+
+class PR,main,Release box;
+class PR,main,Release rounded;
+class upstream container;

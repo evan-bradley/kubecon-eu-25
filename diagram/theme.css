@@ -14,6 +14,10 @@ Note that SVG elements do not support all CSS properties.
     filter:drop-shadow(-3px -3px 3px rgb(213, 213, 213)) !important;
 }
 
+.white {
+    color: white !important;
+}
+
 .rounded rect {
     /* Round corners of boxes. SVG does not support border-radius. */
     rx: 4 !important;
